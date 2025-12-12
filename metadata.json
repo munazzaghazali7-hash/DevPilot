@@ -1,0 +1,5 @@
+{
+  "name": "DevPilot",
+  "description": "A full-stack AI coding assistant that analyzes repositories, generates tasks, diagrams architecture, detects bugs, and creates PR patches using Gemini.",
+  "requestFramePermissions": []
+}
