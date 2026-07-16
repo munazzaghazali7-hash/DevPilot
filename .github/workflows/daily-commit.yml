@@ -1,0 +1,29 @@
+name: Daily Empty Commit
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Create empty commit
+        run: |
+          git commit --allow-empty -m "Daily contribution"
+
+      - name: Push changes
+        run: |
+          git push
