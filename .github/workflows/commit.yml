@@ -14,13 +14,13 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Update file with timestamp
-        run: echo "Last updated: $(date -u)" > last_updated.txt
-
-      - name: Commit and push
+      - name: Make 6 commits
         run: |
           git config user.name "munazzaghazali7-hash"
           git config user.email "munazzaghazali7@gmail.com"
-          git add last_updated.txt
-          git diff --staged --quiet || git commit -m "Daily update: $(date -u +'%Y-%m-%d')"
+          for i in $(seq 1 6); do
+            echo "Update $i: $(date -u)" > last_updated.txt
+            git add last_updated.txt
+            git commit -m "Daily update $i: $(date -u +'%Y-%m-%d %H:%M:%S')"
+          done
           git push
