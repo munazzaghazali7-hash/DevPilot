@@ -18,7 +18,7 @@ jobs:
         run: |
           git config user.name "munazzaghazali7-hash"
           git config user.email "munazzaghazali7@gmail.com"
-          for i in $(seq 1 6); do
+          for i in $(seq 1 2); do
             echo "Update $i: $(date -u)" > last_updated.txt
             git add last_updated.txt
             git commit -m "Daily update $i: $(date -u +'%Y-%m-%d %H:%M:%S')"
